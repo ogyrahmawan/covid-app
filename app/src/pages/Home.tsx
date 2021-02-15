@@ -1,24 +1,36 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Home.css';
+import React  from 'react';
+import { IonTabs, IonRouterOutlet, IonTabBar, IonTabButton, IonIcon, IonLabel, IonHeader, IonTitle } from '@ionic/react';
+import { Route, Redirect } from 'react-router';
+import {document, add, peopleCircle, personCircle} from 'ionicons/icons';
+import { NewReport } from './NewReport';
+import Report from './Report';
+import Profile from './Profil';
 
 const Home: React.FC = () => {
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Blank</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer />
-      </IonContent>
-    </IonPage>
+    <>
+    <IonTabs>
+      <IonRouterOutlet>
+        <Route path="/new" component={NewReport}  />
+        <Route path="/report" component={Report}  />
+        <Route path="/profil" component={Profile}  />
+      </IonRouterOutlet>
+      <IonTabBar slot="bottom">
+        <IonTabButton tab="report" href="/report">
+          <IonIcon icon={document} />
+          <IonLabel>Report</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="add" href="/new">
+          <IonIcon icon={add} />
+          <IonLabel>New Report</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="profil" href="/profil">
+          <IonIcon icon={personCircle} />
+          <IonLabel>Profile</IonLabel>
+        </IonTabButton>
+      </IonTabBar>
+    </IonTabs>
+    </>
   );
 };
 
