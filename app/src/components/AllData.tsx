@@ -1,4 +1,4 @@
-import { IonLabel, IonTabs, IonRouterContext, IonRouterOutlet, IonTabBar, IonTabButton, IonIcon, IonToast, IonContent,  IonPage} from '@ionic/react';
+import { IonToast, IonContent, IonToolbar, IonHeader, IonTitle} from '@ionic/react';
 import {document, personCircle} from 'ionicons/icons'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -39,23 +39,32 @@ const AllData: React.FC = () => {
   }
 
   return (
-      data.victim.length > 0 ?
-      <div>
-        { messages ?
-          <IonToast
-            position="top"
-            isOpen={showToast1}
-            onDidDismiss={() => setShowToast1(false)}
-            message={messages}
-            duration={2000}
-          />
+    <IonHeader>
+      <IonToolbar>
+        <IonTitle>Covid Victim</IonTitle>
+      </IonToolbar>
+      <IonContent fullscreen>
+        {
+          data.victim.length > 0 ?
+          <div className="mt-5 ml-3">
+            { messages ?
+              <IonToast
+                position="top"
+                isOpen={showToast1}
+                onDidDismiss={() => setShowToast1(false)}
+                message={messages}
+                duration={2000}
+              />
+              :
+              ""
+            }
+            <TableData ></TableData>
+          </div>
           :
-          ""
+          <h1>Loading</h1>
         }
-        <TableData ></TableData>
-      </div>
-      :
-      <h1>Loading</h1>
+      </IonContent>
+    </IonHeader>
   )
 };
 

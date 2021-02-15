@@ -45,27 +45,31 @@ const VictimDataCard: React.FC<victimProps>  = ({victims}) => {
           <IonThumbnail slot="start">
             <IonImg src={photoImage} />
           </IonThumbnail>
-          <IonText  >{victims.name}</IonText  >
-          <IonText>{victims.age}</IonText>
+          <IonItem>
+            <IonText  >{victims.name}</IonText  >
+          </IonItem>
+          <IonText>{`${victims.age} year's old`}</IonText>
         </IonItem>
         <IonItem>
           <IonText>
-            {victims.address}
+            {`Address ${victims.address}`}
           </IonText>
         </IonItem>
         <IonItem>
           <IonText>
-            {victims.gender}
+            {`Gender ${victims.gender}`}
           </IonText>
         </IonItem>
         <IonItem>
           <IonText>
-            {victims.location}
+            {`Location ${victims.location}`}
           </IonText>
         </IonItem>
       </IonCardContent>
-      <EditModal data={victims}></EditModal>
-      <IonButton onClick={() => handleDelete(victims.id)}>Delete </IonButton>
+      <div className="d-flex justify-content-center">
+        <EditModal data={victims}></EditModal>
+        <IonButton onClick={() => handleDelete(victims.id)}>Delete </IonButton>
+      </div>
     </IonCard>
   )
 }

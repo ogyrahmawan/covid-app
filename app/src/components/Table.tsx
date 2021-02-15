@@ -10,11 +10,11 @@ const TableData: React.FC = () => {
   },[dispatch])
   return (
     <>
-    <IonRow >
+    <IonRow className="bg-dark text-white border-dark" >
       <IonCol size="1">
         <IonLabel >No</IonLabel>
       </IonCol>
-      <IonCol size="2">
+      <IonCol size="4">
         <IonLabel >Name</IonLabel>
       </IonCol>
       <IonCol size="2">
@@ -23,7 +23,7 @@ const TableData: React.FC = () => {
         <IonCol size="2">
         <IonLabel >Gender</IonLabel>
       </IonCol>
-      <IonCol size="2">
+      <IonCol size="3">
         <IonLabel >Location</IonLabel>
       </IonCol>
     </IonRow>
@@ -33,7 +33,7 @@ const TableData: React.FC = () => {
         <IonCol size="1">
           <IonLabel >{index+1}</IonLabel>
         </IonCol>
-        <IonCol size="2">
+        <IonCol size="4">
           <IonLabel >{item.name}</IonLabel>
         </IonCol>
         <IonCol size="2">
@@ -42,7 +42,7 @@ const TableData: React.FC = () => {
         <IonCol size="2">
           <IonLabel >{item.gender}</IonLabel>
         </IonCol>
-        <IonCol size="2">
+        <IonCol size="3">
           <IonLabel >{item.location}</IonLabel>
         </IonCol>
       </IonRow>

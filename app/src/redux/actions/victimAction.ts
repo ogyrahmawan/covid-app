@@ -45,11 +45,12 @@ export const addNewReport = (payload: Victims) => (dispatch:any) => {
 
 export const editReport = (payload: any, id:string) => (dispatch: any) => {
     db.collection('Victims').doc(id).update(payload)
+    dispatch(fetchVictimsData())
 }
 export const deleteReport = (id: string) => (dispatch:any) => {
-    console.log('test')
     db.collection('Victims').doc(id).delete()
     .then(res => {
         console.log(res)
     })
+    dispatch(fetchVictimsData())
 }

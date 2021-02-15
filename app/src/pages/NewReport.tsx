@@ -32,7 +32,12 @@ export const NewReport: React.FC = () => {
   }
   return (
   <>
-  <IonContent fullscreen>
+  {/* <IonHeader>
+    <IonToolbar>
+      <IonTitle>Add New Report</IonTitle>
+    </IonToolbar>
+  </IonHeader>
+  <IonContent fullscreen> */}
     <div>
       <form onSubmit={handleSubmit}>
         <IonItem>
@@ -60,11 +65,11 @@ export const NewReport: React.FC = () => {
           <IonInput onIonChange={handleChange} type="text" name="location"></IonInput>
         </IonItem>
         <IonItem>
-          <IonButton type="submit">Submit</IonButton>
+          <IonButton className="btn-block" type="submit">Submit</IonButton>
         </IonItem>
       </form>
     </div>
-  </IonContent>
+  {/* </IonContent> */}
   </>
   )
 }

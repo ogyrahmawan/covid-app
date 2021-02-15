@@ -1,4 +1,15 @@
-import { IonLabel, IonTabs, IonRouterContext, IonRouterOutlet, IonTabBar, IonTabButton, IonIcon, IonToast, IonContent,  IonPage} from '@ionic/react';
+import { 
+  IonLabel, 
+  IonHeader,  
+  IonTabs,  
+  IonRouterOutlet, 
+  IonTabBar, 
+  IonTabButton, 
+  IonIcon, 
+  IonContent,  
+  IonToolbar, 
+  IonTitle} 
+from '@ionic/react';
 import {document, personCircle} from 'ionicons/icons'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -44,14 +55,15 @@ const receiveNotif = () => {
 
 
   return (
-      <IonContent fullscreen>
+    <>
+    <IonContent fullscreen>
       <IonTabs>
         <IonRouterOutlet>
-          <Route path="/data" component={AllData}  />
+          <Route path="/dashboard" component={AllData} />
           <Route path="/profil" component={Profile}  />
         </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="data" href="/data">
+        <IonTabBar slot="bottom"> 
+          <IonTabButton tab="dashboard" href="/dashboard">
             <IonIcon icon={document} />
             <IonLabel>Data</IonLabel>
           </IonTabButton>
@@ -61,7 +73,8 @@ const receiveNotif = () => {
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
-      </IonContent>
+    </IonContent>
+    </>
   );
 };
 

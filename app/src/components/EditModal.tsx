@@ -56,6 +56,7 @@ const EditModal: React.FC<DataProp> = ({data}) => {
   const handleSubmit = (e: any) => {
     e.preventDefault()
     dispatch(editReport(formInput, data.id))
+    setShowModal(false)
   }
 
   return (
@@ -92,12 +93,10 @@ const EditModal: React.FC<DataProp> = ({data}) => {
         <IonLabel>Location</IonLabel>
           <IonInput onIonChange={handleChange} type="text"  value={formInput.location}  name="location"></IonInput>
         </IonItem>
-        <IonItem>
-          <IonButton type="submit">Save</IonButton>
-        </IonItem>
+        <IonButton   className="btn-block" style={{marginTop: '100px'}} type="submit">Save</IonButton>
         </form>
         </div>
-        <IonButton onClick={() => setShowModal(false)}>Close Modal</IonButton>
+        <IonButton  onClick={() => setShowModal(false)}>Close Modal</IonButton>
       </IonModal>
       <IonButton onClick={() => setShowModal(true)}>Edit</IonButton>
       </>
