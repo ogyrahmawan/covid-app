@@ -26,6 +26,7 @@ import Login from './pages/Login'
 import './theme/variables.css';
 import Dashboard from './pages/Dashboard';
 import { NewReport } from './pages/NewReport';
+import AllData from './components/AllData'
 
 const App: React.FC = () => (
   <IonApp>
@@ -40,6 +41,7 @@ const App: React.FC = () => (
         <Route path="/report" component={Report} exact />
         <Route path="/profil" component={Profile}  exact />
         <Route path="/new" component={NewReport} exact />
+        <Route path="/data" component={AllData}  />
         <Route exact path="/dashboard">
           <Dashboard></Dashboard>
         </Route>

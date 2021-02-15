@@ -1,7 +1,9 @@
 import {SET_VICTIMS, Victims} from '../type'
 import firebase from '../../firebase/config'
 import 'firebase/firestore'
+import 'firebase/messaging'
 const db = firebase.firestore()
+const messaging = firebase.messaging()
 
 export const fetchVictimsData = () => async (dispatch: any) => {
     const snapshot = await db.collection('Victims').where('UserId', '==', localStorage.getItem('user')).get()
@@ -38,7 +40,7 @@ export const addNewReport = (payload: Victims) => (dispatch:any) => {
     const obj: any = {...payload}
     obj.UserId = localStorage.getItem('user')
     db.collection('Victims').add(obj)
-    // dispatch(fetchVictimsData())
+    dispatch(fetchVictimsData())
 }
 
 export const editReport = (payload: any, id:string) => (dispatch: any) => {

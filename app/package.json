@@ -17,6 +17,7 @@
     "@types/react-router": "^5.1.11",
     "@types/react-router-dom": "^5.1.7",
     "firebase": "^8.2.7",
+    "firebase-admin": "^9.5.0",
     "ionicons": "^5.4.0",
     "lodash": "^4.17.20",
     "react": "^17.0.1",
